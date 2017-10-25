@@ -1,5 +1,0 @@
-1507199353580	Delete element
-1507199535820	Delete element
-1507199582993	Extract superclass 'AbstractCypher'
-1507199662455	Pull up 'cypher' to 'AbstractCypher'
-1507199945354	Encapsulate field 'cypher'
