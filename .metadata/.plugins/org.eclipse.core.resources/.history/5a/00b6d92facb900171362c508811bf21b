@@ -1,0 +1,58 @@
+package ie.gmit.sw;
+
+
+import java.util.*;
+
+public class TypeC {
+	
+	private List<TypeD> list = new ArrayList<TypeD>();
+	private Date date = new Date();
+	/* (non-Javadoc)
+	 * @see java.lang.Object#finalize()
+	 */
+	
+	/**
+	 * Constructor for TypeC
+	 * Takes a date param
+	 * @param d
+	 */
+	public TypeC(Date d) {
+		this.date = d;
+	}
+	
+	public void add(TypeD d) {
+		list.add(d);
+	}
+	public boolean remove(TypeD d) {
+		
+		return list.remove(d);
+	}
+	
+	public int count() {
+		return list.size();
+	}
+	
+	public boolean contains(TypeD d) {
+		return list.contains(d);
+	}
+	
+	public List<TypeD> elements(){ //Note: both the List and TypeD object have a "black diamond" relationship with TypeC
+		List<TypeD> temp = new ArrayList<TypeD>(); //Require a new List with new elements to preserve encapsulation
+		for (TypeD element: list){
+			try {
+				TypeD td = (TypeD) element.clone(); //Also need to clone() each element to preserve encapsulation
+				temp.add(td);
+			} catch (CloneNotSupportedException e) {
+				//Ignore
+			}			
+		}
+		
+		return temp;
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		System.out.println("Type C about to be GC"+this);
+	}
+}

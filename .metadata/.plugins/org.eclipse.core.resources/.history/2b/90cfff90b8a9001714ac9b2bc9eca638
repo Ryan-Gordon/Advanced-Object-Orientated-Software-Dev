@@ -1,0 +1,44 @@
+package ie.gmit.sw;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import javax.crypto.*; //Import Java Crypto library
+public class RSACypher {
+	
+	//Define a Cypher object
+	private Cipher cypher;
+	//Define a KeyPair object 
+	private KeyPair keyring;
+	
+	
+	
+	public RSACypher() throws Exception {
+		//Get an instance of the RSA KeyPairGenerator - We dont create we get
+		KeyPairGenerator keygen = KeyPairGenerator.getInstance("RSA");
+		keygen.initialize(512); // Initialize the bit size 
+		keyring = keygen.generateKeyPair(); // generate a new keypair 
+		cypher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+	}
+
+	public byte[] encrypt(byte[] plaintext) throws Throwable {
+		//Init the cypher with the public key 
+		cypher.init(Cipher.ENCRYPT_MODE, keyring.getPublic());
+		
+		//return an encrypted versoin of the plaintext
+		return cypher.doFinal(plaintext);	
+	}
+	public byte[] decrypt(byte[] cyphertext) throws Throwable {
+		//Init the cypher with the private key 
+		cypher.init(Cipher.DECRYPT_MODE, keyring.getPublic());
+		
+		//return an encrypted version of the plaintext
+		return cypher.doFinal(cyphertext);	
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		System.out.println(this.getClass().getName()+ "=" + this);
+	}
+	
+	
+
+}

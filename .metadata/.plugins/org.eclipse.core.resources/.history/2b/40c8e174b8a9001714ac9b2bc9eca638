@@ -1,0 +1,8 @@
+package ie.gmit.sw;
+
+public interface AbstractCypher {
+	
+	String getSecretKey();
+
+
+}

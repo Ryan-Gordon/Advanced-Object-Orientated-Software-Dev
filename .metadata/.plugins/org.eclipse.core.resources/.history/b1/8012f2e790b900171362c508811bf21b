@@ -1,0 +1,17 @@
+package ie.gmit.sw;
+
+import java.awt.List;
+import java.util.*;
+
+public class TypeA {
+	
+	public static void main(String[] args) {
+		
+		
+		TypeC c = new TypeC(new Date());
+		
+		
+		
+	}
+
+}

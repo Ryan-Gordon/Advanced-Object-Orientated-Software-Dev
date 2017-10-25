@@ -1,0 +1,14 @@
+package ie.gmit.sw;
+
+public class TypeC {
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#finalize()
+	 */
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		System.out.println("Type C about to be GC");
+	}
+
+}

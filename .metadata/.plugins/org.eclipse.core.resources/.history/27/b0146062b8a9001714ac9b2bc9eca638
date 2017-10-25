@@ -1,0 +1,16 @@
+package ie.gmit.sw;
+
+import java.security.Key;
+
+public interface Cypher extends AbstractCypher{
+	
+	String encrypt(String plaintext) throws Throwable;
+	byte[] encrypt(byte[] plaintext) throws Throwable;
+
+	String decrypt(String cypherText) throws Throwable;
+	byte[] decrypt(byte[] cypherText) throws Throwable;
+	
+	public void setKey(Key key);
+	public void getKey();
+
+}

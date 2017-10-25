@@ -1,0 +1,35 @@
+package ie.gmit.sw;
+
+public class TypeD {
+	
+	private String name;
+
+	public TypeD(String name) {
+		super();
+		this.name = name;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#finalize()
+	 */
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-gener
+		System.out.println("Type D about to be GC"+this);
+	}
+
+}

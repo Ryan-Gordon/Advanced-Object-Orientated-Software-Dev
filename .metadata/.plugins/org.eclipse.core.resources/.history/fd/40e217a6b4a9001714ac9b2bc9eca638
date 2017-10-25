@@ -1,0 +1,15 @@
+package ie.gmit.sw;
+
+public class Runner {
+	
+	public static void main(String[] args) throws Throwable {
+		RSACypher cypher = new RSACypher();
+		
+		String message = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
+		
+		byte [] result = cypher.encrypt(message.getBytes());
+		System.out.println("Before" + message);
+		System.out.println(new String(cypher.encrypt(result)));
+	}
+
+}

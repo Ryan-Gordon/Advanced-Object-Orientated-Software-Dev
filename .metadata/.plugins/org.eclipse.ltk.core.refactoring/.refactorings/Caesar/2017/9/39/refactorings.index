@@ -1,0 +1,4 @@
+1506592355561	Encapsulate field 'key'
+1506595005841	Extract interface 'Cypherator'
+1506595138409	Rename local variable 'cypherText'
+1506595698931	Extract superclass 'AbstractCypher'

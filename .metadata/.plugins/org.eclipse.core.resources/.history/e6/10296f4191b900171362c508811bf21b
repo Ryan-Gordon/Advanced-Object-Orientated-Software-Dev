@@ -1,0 +1,14 @@
+package ie.gmit.sw;
+
+public class TypeD {
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#finalize()
+	 */
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-gener
+		System.out.println("Type D about to be GC"+this);
+	}
+
+}

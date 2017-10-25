@@ -1,0 +1,68 @@
+package ie.gmit.sw;
+
+import java.util.*;
+
+public class TypeA {
+	
+	public static void main(String[] args) throws Throwable {
+		
+		System.runFinalizersOnExit(true);
+		
+		/**
+		 * Another way would be to just pass in an instance of Date 
+		 *However this was uses TypeB 
+		 *This is the other way : TypeC tc = new TypeC(new Date());
+		 */
+		TypeC tc = new TypeC(new Date()); //One way to do this with constructor
+		
+		/**
+		 * In this method we instantiate a instance of type b which is held by A
+		 * The date of this variable is then passed to the constructor or type C
+		 */
+		//TypeB tb = new TypeB(new Date());
+		//TypeC tc2 = new TypeC(tb.getDate()); //One way to do this with constructor
+
+		
+		//Instantiate 100 instances of TypeD
+		for (int i = 0; i < 100; i ++){
+			tc.add(new TypeD("G" + i));
+		}
+		
+		System.out.println("Count: " + tc.count());
+		
+		/**
+		 * Create another instance of TypeD
+		 * This object is NOT in the list but we use to find a TypeD object in the list and remove it.
+		 */
+		TypeD td = new TypeD("G50"); 
+		boolean result = tc.remove(td); //Proves that full encapsulation works.
+		
+		System.out.println("Remove returned " + result + ". There are " + tc.count() + " elements in container.");
+		
+		List<TypeD> tds = tc.elements(); //The List returned by elements() is a copy containing clones
+		tds.clear(); //Clears the copy and the clones, but leaves the integrity of TypeC intact
+
+		
+		System.out.println("Count: " + tc.count()); //Proof: there are still 99 elements in TypeC
+		
+		
+		/*
+		TypeD d = new TypeD("giggity");
+		c.add(new TypeD("hello"));
+		
+		c.add(new TypeD("hello2"));
+		
+		c.count();
+		
+		d.setName("giggity2");
+		c.add(d);
+		System.out.println(c.elements().toString());
+		System.out.println(c.contains(d));
+		c.delete(d);
+		System.out.println(c.contains(d));
+		
+		*/
+		
+	}
+
+}

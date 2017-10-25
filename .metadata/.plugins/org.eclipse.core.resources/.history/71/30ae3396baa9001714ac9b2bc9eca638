@@ -1,0 +1,15 @@
+package ie.gmit.sw;
+
+import java.security.Key;
+
+public interface Cypher{
+	
+	String encrypt(String plaintext, Key key) throws Throwable;
+	byte[] encrypt(byte[] plaintext, Key key) throws Throwable;
+
+	String decrypt(String cypherText,Key key) throws Throwable;
+	byte[] decrypt(byte[] cypherText,Key key) throws Throwable;
+	
+	
+
+}

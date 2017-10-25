@@ -1,0 +1,23 @@
+package ie.gmit.sw;
+
+import java.awt.List;
+import java.util.*;
+
+public class TypeA {
+	
+	public static void main(String[] args) throws Throwable {
+		
+		System.runFinalizersOnExit(true);
+		TypeC c = new TypeC(new Date());
+		
+		
+		c.add(new TypeD("hello"));
+		
+		c.add(new TypeD("hello2"));
+		
+		c.count();
+		System.out.println(c.elements().toString());
+		
+	}
+
+}
